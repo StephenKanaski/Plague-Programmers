@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Vis_2</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="wrapper">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/vis_1">1</a></li>
+                <li><a class="active" href="/vis_2">2</a></li>
+                <li><a href="/vis_3">3</a></li>
+              </ul> 
+    </div>
+    <div class="mainer">
+      <select id="selDataset" onchange="optionChanged(this.value)">
+        <option selected="selected" value="Alabama">Alabama</option>
+        <option value="Alaska">Alaska</option>
+        <option value="Arizona">Arizona</option>
+        <option value="California">California</option>
+      </select>
+      <br>
+    </div>
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+
+  <!-- Footer-->
+  <div id="footer">
+    <p>Plague Programmers &copy;2020</p>
+  </div>
+  <!-- <script type="text/javascript" src="assets/js/app.js"></script>-->
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <!-- <script src="./static/js/hello.js"></script>-->
+  <script src="./static/js/datas.js"></script>
+
+</body>
+
+</html>
