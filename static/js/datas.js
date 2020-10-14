@@ -24,15 +24,16 @@ function getPlot(state) {
         labels: dates,
         datasets: [{
             label: 'Covid Cases',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgb(76, 175, 80)',
+            borderColor: 'rgb(0, 0, 0)',
+            // R:76, G:175, B:80
             data: cases
         }]
     },
 
     // Configuration options go here
     options: {
-      responsive: true,
+      // responsive: true,
 			title: {
 					display: true,
 					text: 'Growth of Covid Cases by State'
