@@ -57,11 +57,48 @@ function getPlot(state) {
         {
           x: clean_dates,
           y: deaths,
-          type: 'bar'
+          type: 'bar',
+          marker: {
+            color: 'rgb(76, 175, 80)',
+          },
         }
       ];
+
+      var layout = {
+        title: {
+          text:'Covid Deaths',
+          font: {
+            family: 'sans-serif',
+            size: 24
+          },
+          xref: 'paper',
+          // x: 0.05,
+          xanchor: "center", 
+          yanchor: "top"
+        },
+        xaxis: {
+          title: {
+            text: 'Month',
+            font: {
+              family: 'sans-serif',
+              size: 18,
+              color: '#7f7f7f'
+            }
+          },
+        },
+        yaxis: {
+          title: {
+            text: 'Number of Deaths',
+            font: {
+              family: 'sans-serif',
+              size: 18,
+              color: '#7f7f7f'
+            }
+          }
+        }
+      };
       
-      Plotly.newPlot('myDiv', data);
+      Plotly.newPlot('myDiv', data, layout);
 
 })};
 

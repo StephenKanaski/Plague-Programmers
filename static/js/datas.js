@@ -15,6 +15,11 @@ function getPlot(state) {
     console.log(deaths)
 
     var ctx = document.getElementById('myChart').getContext('2d');
+
+    Chart.defaults.global.defaultFontFamily = 'sans-serif';
+    Chart.defaults.global.defaultFontSize = 16;
+
+
     var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'line',
@@ -36,14 +41,21 @@ function getPlot(state) {
       // responsive: true,
 			title: {
 					display: true,
-					text: 'Growth of Covid Cases by State'
-				},
+          text: 'Growth of Covid Cases by State',
+          fontSize: 24
+        },
+        legend: {
+          position: "bottom",
+          align: "start"
+      },
         scales: {
           xAxes: [{
             display: true,
 						scaleLabel: {
 							display: true,
-							labelString: 'Dates'
+              labelString: 'Dates',
+              fontSize: 18,
+              fontStyle: "bold"
 						},
             ticks: {
               maxTicksLimit: 11
@@ -53,7 +65,9 @@ function getPlot(state) {
 						display: true,
 						scaleLabel: {
 							display: true,
-							labelString: 'Number of Cases'
+              labelString: 'Number of Cases',
+              fontSize: 18,
+              fontStyle: "bold"
 						}
 					}]
         }
