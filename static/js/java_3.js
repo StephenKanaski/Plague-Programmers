@@ -45,7 +45,12 @@ function getPlot(state) {
     // })
     // console.log(cal_data)
 
-    $("#cal-heatmap").CalendarHeatmap(cal_array, {});
+    $("#cal-heatmap").CalendarHeatmap(cal_array, {
+      title: "Covid Deaths",
+			tooltips:{
+				show: true
+			}
+    });
     
     
     
