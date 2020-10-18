@@ -34,7 +34,7 @@ def db():
 
 @app.route('/home')
 def home():
-    covidData = mongo.db.covid
+    # covidData = mongo.db.covid
     return render_template('home.html')
 
 @app.route('/vis_1')
