@@ -3,12 +3,12 @@ function getMap(state) {
       // console.log(data)
   
       var locations = data.filter(s => s.state.toString() === state);
-      console.log(areas)
+      console.log(locations)
     
-      var covid_dates = locations.map(location => location.date);
+      var covid_dates = locations.map(location => location.covid_date);
       console.log(covid_dates)
 
-      var cleaned_dates = covid_dates.map(date => date.substring(5,7));
+      var cleaned_dates = covid_dates.map(covid_date => covid_date.substring(5,7));
       console.log(cleaned_dates)
 
       cleaned_dates.forEach(function(item, i) { 
@@ -27,11 +27,10 @@ function getMap(state) {
         });
       console.log(cleaned_dates)
     
-      var covid_cases = locations.map(location => location.cases);
+      var covid_cases = locations.map(location => location.covid_cases);
         console.log(covid_cases)
     })
 };
-
 
 
 
@@ -46,6 +45,6 @@ function getMap(state) {
 
 // var svg = d3.select("#myMap")
 //     .append("svg")
-//     .attr("width", width)
+//     .attr("width", width)    
 //     .attr("height", height)
 
