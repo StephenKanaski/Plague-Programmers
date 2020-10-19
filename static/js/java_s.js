@@ -35,7 +35,43 @@ function getPlot(state) {
     })
 };
 
+var width = 960;
+var height = 500;
 
+var svg = d3.select("svg")
+  .attr("width", width)
+  .attr("height", height);
+
+var path = d3.geoPath();
+
+var file = "https://d3js.org/us-10m.v1.json"
+var promises = []
+
+file.forEach(function(url) {
+  promises.push(d3.json(url))
+});
+Promises.all(promises).then(function(values) {
+  console.log(values)
+});
+
+// d3.queue()
+//   .defer(d3.json, "https://d3js.org/us-10m.v1.json")
+//   .await(ready);
+
+function ready(error, us) {
+  if (error) throw error;
+
+  svg.append("g")
+    .attr("class", "counties")
+    .selectAll("path")
+    .data(topojson.feature(us, us.objects.states).features)
+    .enter().append("path")
+    // .attr("")
+
+  svg.append("path")
+    .datum(topojson.mesh(us, us.objects.states, function(a, b) {return a !== b;}))
+    .attr("class", "states");
+}
 
 // // Width and height of map
 // var width = 960;
