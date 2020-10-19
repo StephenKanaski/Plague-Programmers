@@ -41,7 +41,7 @@ function getPlot(state) {
       // responsive: true,
 			title: {
 					display: true,
-          text: 'Growth of Covid Cases by State',
+          text: 'Growth of Covid Cases',
           fontSize: 24
         },
         legend: {

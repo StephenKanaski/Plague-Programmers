@@ -59,6 +59,8 @@
   }
 
 
+
+
 .active {
   background-color: #4CAF50;
 }
@@ -109,4 +111,15 @@ h {
 }
 .select-css option {
 	font-weight:normal;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-size: 25px;
+  color: #4CAF50, 
+
 }

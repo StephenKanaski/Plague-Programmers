@@ -79,8 +79,9 @@ d3.json('/data').then((data) => {
           yanchor: "top"
         },
         xaxis: {
+            automargin: true,
           title: {
-            text: 'Month',
+            text: 'State',
             font: {
               family: 'sans-serif',
               size: 18,
