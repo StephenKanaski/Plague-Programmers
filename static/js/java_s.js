@@ -35,45 +35,45 @@ function getPlot(state) {
     })
 };
 
-var width = 960;
-var height = 500;
+// var width = 960;
+// var height = 500;
 
-var svg = d3.select("svg")
-  .attr("width", width)
-  .attr("height", height);
+// var svg = d3.select("svg")
+//   .attr("width", width)
+//   .attr("height", height);
 
-var path = d3.geoPath();
+// var path = d3.geoPath();
 
-var file = "https://d3js.org/us-10m.v1.json"
-var promises = []
+// var file = "https://d3js.org/us-10m.v1.json"
+// var promises = []
 
-file.forEach(function(url) {
-  promises.push(d3.json(url))
-});
-Promises.all(promises).then(function(values) {
-  console.log(values)
-});
+// file.forEach(function(url) {
+//   promises.push(d3.json(url))
+// });
+// Promises.all(promises).then(function(values) {
+//   console.log(values)
+// });
 
 // d3.queue()
 //   .defer(d3.json, "https://d3js.org/us-10m.v1.json")
 //   .await(ready);
 
-function ready(error, us) {
-  if (error) throw error;
+// function ready(error, us) {
+//   if (error) throw error;
 
-  svg.append("g")
-    .attr("class", "counties")
-    .selectAll("path")
-    .data(topojson.feature(us, us.objects.states).features)
-    .enter().append("path")
-    // .attr("")
+//   svg.append("g")
+//     .attr("class", "counties")
+//     .selectAll("path")
+//     .data(topojson.feature(us, us.objects.states).features)
+//     .enter().append("path")
+//     // .attr("")
 
-  svg.append("path")
-    .datum(topojson.mesh(us, us.objects.states, function(a, b) {return a !== b;}))
-    .attr("class", "states");
-}
+//   svg.append("path")
+//     .datum(topojson.mesh(us, us.objects.states, function(a, b) {return a !== b;}))
+//     .attr("class", "states");
+// }
 
-// // Width and height of map
+// Width and height of map
 // var width = 960;
 // var height = 500;
 
@@ -87,3 +87,32 @@ function ready(error, us) {
 //     .attr("width", width)    
 //     .attr("height", height)
 
+// d3.csv("/covid_cases.csv").then(function(data) {
+//   console.log(data[0]);
+// });
+
+var w = 500;
+var h = 300;
+
+var projection = d3.geoAlbersUsa()
+  .translate([w/2, h/2])
+  .scale([500]);
+
+var path = d3.geoPath()
+  .projection(projection);
+
+var color = d3.scaleQuantize()
+  .range(["rgb(237,248,233)","rgb(186,228,179)","rgb(116,196,118)","rgb(49,163,84)","rgb(0,109,44)"]);
+
+var svg = d3.select("body")
+  .append("svg")
+  .attr("width", w)
+  .attr("height", h);
+
+d3.csv("covid_cases.csv", function(data) {
+  color.domain([
+    d3.min(data, function(d) { return d.value; }),
+    d3.max(data, function(d) { return d.value; })
+  ]);
+  d3.json()
+})
